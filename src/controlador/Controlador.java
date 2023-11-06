@@ -129,7 +129,7 @@ public class Controlador {
                     // Cita agendada correctamente.
                 } catch (FinDeSemanaException | HorarioNoValidoException | CitaSinAnticipacionException | SinDisponibilidadException e) {
                     // Manejar la excepción, por ejemplo, mostrando el mensaje de error:
-                    System.out.println(e.getMessage());
+                    System.out.println(e.getMessage() +" " + cita.getFecha() + " "+ cita.getHora());
                 }
             }
 
