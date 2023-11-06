@@ -38,17 +38,6 @@ public class ConsoleCitasPrinter implements CitasPrinter {
 }
 ```
 
-#### Open/Closed Principle (OCP)
-The code is open for extension but closed for modification. We can easily add new validation rules without changing the existing validation logic.
-
-
-```java
-public class ConsoleCitasPrinter implements CitasPrinter {
-    public void print(List<CitaMedica> citas) {
-        // Logic to print all the citas to the console
-    }
-}
-```
 
 
 #### Interface Segregation Principle (ISP)
