@@ -9,8 +9,8 @@ import modelo.CitaMedica;
 
 public class SinDisponibilidadRule implements CitaValidationRule {
 
-    private static final int MAX_ESPECIALISTAS = 3;
-    private static final int MAX_GENERALES = 2;
+    static final int MAX_ESPECIALISTAS = 3;
+    static final int MAX_GENERALES = 2;
     private Map<LocalDate, LinkedList<CitaMedica>> mapaCitas ;
     public SinDisponibilidadRule(Map<LocalDate, LinkedList<CitaMedica>> mapaCitas) {
         this.mapaCitas = mapaCitas;

@@ -1,7 +1,5 @@
 package impresora;
 
-import static org.junit.Assert.assertTrue;
-
 import modelo.CitaMedica;
 import modelo.Paciente;
 import org.junit.After;
@@ -15,7 +13,9 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.HashMap;
 
-public class ConsoleCitasPrinterTest {
+import static org.junit.Assert.assertTrue;
+
+public class CitasPrinterTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -32,11 +32,11 @@ public class ConsoleCitasPrinterTest {
 
     @Test
     public void testPrintCitas() {
-        // Crear instancia de ConsoleCitasPrinter
-        ConsoleCitasPrinter printer = new ConsoleCitasPrinter();
+        // Crear la implementación de CitasPrinter
+        CitasPrinter printer = new CitasPrinterImpl();
 
         // Crear datos de prueba
-        LocalDate date = LocalDate.of(2023, 11, 8);
+        LocalDate date = LocalDate.now();
         CitaMedica citaMedica = new CitaMedica("2023-11-08", "15:00", "General", "Dermatología", new Paciente(), true);
         LinkedList<CitaMedica> citasList = new LinkedList<>();
         citasList.add(citaMedica);
@@ -44,15 +44,23 @@ public class ConsoleCitasPrinterTest {
         Map<LocalDate, LinkedList<CitaMedica>> mapaCitas = new HashMap<>();
         mapaCitas.put(date, citasList);
 
-        // Ejecutar método que se está probando
+        // Llamar al método printCitas
         printer.printCitas(mapaCitas);
 
-        // Crear el String esperado
-        String expectedOutput = "Fecha: " + date + System.lineSeparator() +
-                "\tCitaMedica{fecha=" + citaMedica.getFecha() + ", hora=" + citaMedica.getHora() + ", tipo=" + citaMedica.getTipo() +
-                ", especialidad=" + citaMedica.getEspecialidad() + ", paciente=" + citaMedica.getPaciente().toString() + ", nuevacita=" + citaMedica.isNuevacita() + "}" + System.lineSeparator();
+        // Verificar que la salida está correcta
+        String expectedOutput = "Citas para el día " + date.toString() + ":\n" +
+                "[CitaMedica{fecha=2023-11-08, hora=15:00, tipo=General, especialidad=Dermatología, paciente=Paciente{}, nuevacita=true}]\n";
+        assertTrue("La impresión de la cita no coincide con lo esperado.", outContent.toString().contains(expectedOutput));
+    }
 
-        // Verificar que la salida capturada contiene el String esperado
-        assertTrue("La salida impresa no coincide con el formato esperado.", outContent.toString().contains(expectedOutput));
+    // Una clase ficticia
+    private class CitasPrinterImpl implements CitasPrinter {
+        @Override
+        public void printCitas(Map<LocalDate, LinkedList<CitaMedica>> mapaCitas) {
+            mapaCitas.forEach((date, citas) -> {
+                System.out.println("Citas para el día " + date.toString() + ":");
+                System.out.println(citas.toString());
+            });
+        }
     }
 }

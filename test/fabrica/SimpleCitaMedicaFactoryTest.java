@@ -1,36 +1,47 @@
 package fabrica;
 
 import modelo.CitaMedica;
-import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class SimpleCitaMedicaFactoryTest {
 
-    private SimpleCitaMedicaFactory factory;
-
-    @Before
-    public void setUp() {
-        factory = new SimpleCitaMedicaFactory();
-    }
-
     @Test
-    public void testCreateCitaMedicaWithValidData() {
-        // Supongamos que los datos necesarios para crear una CitaMedica son fecha, hora, tipo, y médico.
-        String[] data = {"2023-11-10", "15:00", "Consulta General", "Dr. Perez"};
+    public void testCreateCitaMedica() {
+        SimpleCitaMedicaFactory factory = new SimpleCitaMedicaFactory();
 
-        CitaMedica cita = factory.createCitaMedica(data);
+        // Datos simulados
+        String[] parts = {"2023-11-08", "15:00", "General", "Dermatología"};
 
-        assertNotNull("CitaMedica should not be null", cita);
-        assertEquals("The date should match the input", "2023-11-10", cita.getFecha());
-        assertEquals("The time should match the input", "15:00", cita.getHora());
+        // Creación de la cita médica utilizando la fábrica
+        CitaMedica citaMedica = factory.createCitaMedica(parts);
+
+        // Comprobar que los datos de la cita médica son correctos
+        assertNotNull("La cita médica no debería ser null", citaMedica);
+        assertEquals("La fecha no coincide", "2023-11-08", citaMedica.getFecha());
+        assertEquals("La hora no coincide", "15:00", citaMedica.getHora());
+        assertEquals("El tipo no coincide", "General", citaMedica.getTipo());
+        assertEquals("La especialidad no coincide", "Dermatología", citaMedica.getEspecialidad());
+        assertNotNull("El paciente no debería ser null", citaMedica.getPaciente());
+        assertTrue("La cita debería ser marcada como nueva", citaMedica.isNuevacita());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testCreateCitaMedicaWithInvalidData() {
-        // Datos inválidos que deberían lanzar una excepción al intentar crear una CitaMedica
-        String[] data = {"invalid-date", "25:61", "Consulta General", "Dr. Perez"};
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testCreateCitaMedicaWithInsufficientData() {
+        SimpleCitaMedicaFactory factory = new SimpleCitaMedicaFactory();
 
-        factory.createCitaMedica(data);
+        // Datos insuficientes para crear una cita médica
+        String[] insufficientParts = {"2023-11-08", "15:00"};
+
+        // Intento de creación de la cita médica que debería lanzar una excepción
+        factory.createCitaMedica(insufficientParts);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateCitaMedicaWithNullData() {
+        SimpleCitaMedicaFactory factory = new SimpleCitaMedicaFactory();
+
+        // Pasar null debería lanzar una excepción
+        factory.createCitaMedica(null);
     }
 }

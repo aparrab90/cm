@@ -1,53 +1,68 @@
 package controlador;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.Assert;
-import modelo.CitaMedica;
 import excepciones.*;
 import fabrica.CitaMedicaFactory;
+import fabrica.SimpleCitaMedicaFactory;
 import impresora.ConsoleCitasPrinter;
-
+import modelo.CitaMedica;
+import org.junit.Before;
+import org.junit.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.time.LocalDate;
-import modelo.DatosContacto;
-import modelo.Paciente;
+import java.util.LinkedList;
+import java.util.Map;
+import org.junit.After;
+
+import static org.junit.Assert.*;
 
 public class ControladorTest {
 
     private Controlador controlador;
-    private ConsoleCitasPrinter citasPrinter; // Esta podría ser una versión stub si es necesario
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
     public void setUp() {
-        controlador = new Controlador(new CitaMedicaFactory() {
-            @Override
-            public CitaMedica createCitaMedica(String[] parts) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        }, new ConsoleCitasPrinter());
+        // Redireccionar salida estándar al stream de salida para pruebas.
+        System.setOut(new PrintStream(outContent));
+
+        // Aquí se instancian las dependencias de Controlador y luego el Controlador mismo.
+        CitaMedicaFactory factory = new SimpleCitaMedicaFactory();
+        ConsoleCitasPrinter printer = new ConsoleCitasPrinter();
+        controlador = new Controlador(factory, printer);
     }
 
     @Test
-    public void testAgregarCitaValida() throws CitaValidationException {
-        // Crear una cita médica de prueba
-        CitaMedica cita = new CitaMedica("2023-11-10", "09:00", "Consulta general", "Dr. Perez", new Paciente("123", "Juan", "Pérez", "1980-01-01", new DatosContacto("123456789", "juan@example.com"), null), false);
-        
-        // Agregar cita
+    public void agregarCitaYVerificarMapa() throws CitaValidationException {
+        // Creamos una cita médica de prueba (los parámetros deben ser válidos para las reglas de validación)
+        CitaMedica cita = new CitaMedica("2023-11-08", "10:00", "CONSULTA", "Proctólogo", null, false);
+
+        // Verificar y agregar la cita
         controlador.verificarYAgregarCita(cita);
-        
-        // Verificar que la cita se agregó al mapa de citas
-        Assert.assertTrue("La cita debe agregarse al mapa de citas",
-                controlador.getMapaCitas().containsKey(LocalDate.parse("2023-11-10")) &&
-                controlador.getMapaCitas().get(LocalDate.parse("2023-11-10")).contains(cita));
+
+        // Obtener el mapa de citas del controlador
+        Map<LocalDate, LinkedList<CitaMedica>> mapaCitas = controlador.getMapaCitas();
+
+        // Verificar si el mapa contiene la fecha de la cit
+        assertTrue("El mapa debe contener la fecha de la cita", mapaCitas.containsKey(LocalDate.of(2023, 11, 8)));
+
+        // Verificar si la cita ha sido agregada correctamente
+        assertTrue("La lista de citas para la fecha debe contener la cita creada", 
+            mapaCitas.get(LocalDate.of(2023, 11, 8)).contains(cita));
     }
 
     @Test(expected = FinDeSemanaException.class)
-    public void testAgregarCitaEnFinDeSemana() throws CitaValidationException {
-        // Crear una cita médica de prueba en fin de semana
-        CitaMedica cita = new CitaMedica("2023-11-11", "09:00", "Consulta general", "Dr. Perez", new Paciente("123", "Juan", "Pérez", "1980-01-01", new DatosContacto("123456789", "juan@example.com"), null), false);
-        
-        // Intentar agregar la cita
+    public void agregarCitaEnFinDeSemanaDebeFallar() throws CitaValidationException {
+        // Intentar agregar una cita en un día del fin de semana para forzar la excepción
+        CitaMedica cita = new CitaMedica("2023-11-11", "10:00", "CONSULTA", "Dermatologo", null, false);
+
+        // Esto debe lanzar FinDeSemanaException
         controlador.verificarYAgregarCita(cita);
+    }
         
+    // Limpiamos las pruebas
+    @After
+    public void cleanUpStreams() {
+        System.setOut(null);
     }
 }

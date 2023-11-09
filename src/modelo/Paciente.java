@@ -24,4 +24,8 @@ public class Paciente extends Persona {
     public String toString() {
         return super.toString() + "Paciente{" + "apoderado=" + apoderado + '}';
     }   
+
+    Object getDatosContacto() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

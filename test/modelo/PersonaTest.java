@@ -4,70 +4,60 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
 public class PersonaTest {
 
     private Persona persona;
-    private DatosContacto datosContacto; // Asumiendo que existe una clase DatosContacto.
+    private DatosContacto datosContacto;
 
     @Before
     public void setUp() {
-        datosContacto = new DatosContacto("5551234", "ciudad@ejemplo.com");
-        persona = new Persona("12345678A", "Juan", "Pérez", "1980-05-20", datosContacto);
+        datosContacto = new DatosContacto("5551234", "juanvelasquez@hotmail.com");
+        persona = new Persona("123456789", "PersonaNombre", "PersonaApellido", "1990-01-01", datosContacto);
     }
 
     @Test
-    public void testGetIdentificacion() {
-        assertEquals("12345678A", persona.getIdentificacion());
+    public void testConstructorWithArgs() {
+        assertNotNull("El objeto persona no debe ser null", persona);
+        assertEquals("La identificación debe coincidir", "123456789", persona.getIdentificacion());
+        assertEquals("Los nombres deben coincidir", "PersonaNombre", persona.getNombres());
+        assertEquals("Los apellidos deben coincidir", "PersonaApellido", persona.getApellidos());
+        assertEquals("La fecha de nacimiento debe coincidir", "1990-01-01", persona.getFechaNacimiento());
+        assertEquals("Los datos de contacto deben coincidir", datosContacto, persona.getDatosContacto());
+    }
+
+    @Test
+    public void testDefaultConstructor() {
+        Persona nuevaPersona = new Persona();
+        assertNotNull("El objeto persona no debe ser null", nuevaPersona);
     }
 
     @Test
     public void testSetIdentificacion() {
-        persona.setIdentificacion("87654321B");
-        assertEquals("87654321B", persona.getIdentificacion());
-    }
-
-    @Test
-    public void testGetNombres() {
-        assertEquals("Juan", persona.getNombres());
+        persona.setIdentificacion("987654321");
+        assertEquals("La identificación debe ser actualizada", "987654321", persona.getIdentificacion());
     }
 
     @Test
     public void testSetNombres() {
-        persona.setNombres("Carlos");
-        assertEquals("Carlos", persona.getNombres());
-    }
-
-    @Test
-    public void testGetApellidos() {
-        assertEquals("Pérez", persona.getApellidos());
+        persona.setNombres("NuevoNombre");
+        assertEquals("Los nombres deben ser actualizados", "NuevoNombre", persona.getNombres());
     }
 
     @Test
     public void testSetApellidos() {
-        persona.setApellidos("González");
-        assertEquals("González", persona.getApellidos());
-    }
-
-    @Test
-    public void testGetFechaNacimiento() {
-        assertEquals("1980-05-20", persona.getFechaNacimiento());
+        persona.setApellidos("NuevoApellido");
+        assertEquals("Los apellidos deben ser actualizados", "NuevoApellido", persona.getApellidos());
     }
 
     @Test
     public void testSetFechaNacimiento() {
-        persona.setFechaNacimiento("1990-06-15");
-        assertEquals("1990-06-15", persona.getFechaNacimiento());
+        persona.setFechaNacimiento("2000-01-01");
+        assertEquals("La fecha de nacimiento debe ser actualizada", "2000-01-01", persona.getFechaNacimiento());
     }
 
     @Test
     public void testToString() {
-        String expectedString = "Persona{" +
-                "identificacion=" + persona.getIdentificacion() +
-                ", nombres=" + persona.getNombres() +
-                ", apellidos=" + persona.getApellidos() +
-                ", fechaNacimiento=" + persona.getFechaNacimiento() +
-                '}';
-        assertEquals(expectedString, persona.toString());
+        String expected = "Persona{identificacion='123456789', nombres='PersonaNombre', apellidos='PersonaApellido', fechaNacimiento='1990-01-01'}";
+        assertEquals("La representación String debe ser la esperada", expected, persona.toString());
     }
 }

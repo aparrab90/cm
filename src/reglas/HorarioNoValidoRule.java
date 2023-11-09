@@ -9,9 +9,9 @@ import modelo.CitaMedica;
 
 public class HorarioNoValidoRule implements CitaValidationRule {
 
-    private static final LocalTime INICIO_JORNADA = LocalTime.of(8, 0);
-    private static final LocalTime FIN_JORNADA = LocalTime.of(19, 0);
-    private static final LocalTime FIN_JORNADA_VIERNES = LocalTime.of(13, 0);
+    static final LocalTime INICIO_JORNADA = LocalTime.of(8, 0);
+    static final LocalTime FIN_JORNADA = LocalTime.of(19, 0);
+    static final LocalTime FIN_JORNADA_VIERNES = LocalTime.of(13, 0);
 
     @Override
     public void validate(CitaMedica cita) throws CitaValidationException {

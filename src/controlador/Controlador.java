@@ -61,7 +61,7 @@ public class Controlador {
         agregarCita(cita);
     }
 
-    private void agregarCita(CitaMedica cita) {
+    void agregarCita(CitaMedica cita) {
         mapaCitas.computeIfAbsent(LocalDate.parse(cita.getFecha()), k -> new LinkedList<>()).add(cita);
     }
 

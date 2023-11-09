@@ -10,22 +10,30 @@ public class DatosContactoTest {
 
     @Before
     public void setUp() {
-        datosContacto = new DatosContacto("correo@example.com", "555-5555");
+        datosContacto = new DatosContacto("0998746782", "juanvelasquez@hotmail.com");
+    }
+
+    @Test
+    public void testGetTelefonoContacto() {
+        assertEquals("El número de teléfono debe coincidir con el proporcionado", "123456789", datosContacto.getTelefonoContacto());
+    }
+
+    @Test
+    public void testSetTelefonoContacto() {
+        String nuevoTelefono = "123456789";
+        datosContacto.setTelefonoContacto(nuevoTelefono);
+        assertEquals("El número de teléfono debe haber sido cambiado", nuevoTelefono, datosContacto.getTelefonoContacto());
     }
 
     @Test
     public void testGetCorreoElectronico() {
-        assertEquals("correo@example.com", datosContacto.getCorreoElectronico());
+        assertEquals("El correo electrónico debe coincidir con el proporcionado", "juanvelasquezzz@hotmail.com", datosContacto.getCorreoElectronico());
     }
 
     @Test
-    public void testGetTelefono() {
-        assertEquals("555-5555", datosContacto.getTelefono());
-    }
-
-    @Test
-    public void testToString() {
-        String expected = "DatosContacto{correoElectronico=correo@example.com, telefono=555-5555}";
-        assertEquals(expected, datosContacto.toString());
+    public void testSetCorreoElectronico() {
+        String nuevoCorreo = "nuevo.contacto@hotmail.com";
+        datosContacto.setCorreoElectronico(nuevoCorreo);
+        assertEquals("El correo electrónico debe haber sido cambiado", nuevoCorreo, datosContacto.getCorreoElectronico());
     }
 }
