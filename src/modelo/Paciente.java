@@ -1,14 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-
-/**
- *
- * @author gyecsisap
- */
 public class Paciente extends Persona {
     private Apoderado apoderado;
 
@@ -32,7 +23,9 @@ public class Paciente extends Persona {
     @Override
     public String toString() {
         return super.toString() + "Paciente{" + "apoderado=" + apoderado + '}';
+    }   
+
+    Object getDatosContacto() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    
 }
