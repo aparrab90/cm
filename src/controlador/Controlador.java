@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import excepciones.*;
@@ -15,10 +11,6 @@ import java.util.*;
 import modelo.*;
 import reglas.*;
 
-/**
- *
- * @author gyecsisap
- */
 public class Controlador {
 
    private Map<LocalDate, LinkedList<CitaMedica>> mapaCitas;
@@ -133,7 +125,6 @@ public class Controlador {
                 }
             }
 
-            //agregarCita(cita);
         }
     }
 

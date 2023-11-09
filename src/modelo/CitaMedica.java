@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-/**
- *
- * @author gyecsisap
- */
 public class CitaMedica {
 
     private String fecha;
@@ -55,7 +47,4 @@ public class CitaMedica {
     public String toString() {
         return "CitaMedica{" + "fecha=" + fecha + ", hora=" + hora + ", tipo=" + tipo + ", especialidad=" + especialidad + ", paciente=" + paciente + ", nuevacita=" + nuevacita + '}';
     }
-
-    
-
 }

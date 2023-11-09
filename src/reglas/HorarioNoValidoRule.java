@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package reglas;
 
 import excepciones.CitaValidationException;
@@ -11,10 +7,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import modelo.CitaMedica;
 
-/**
- *
- * @author gyecsisap
- */
 public class HorarioNoValidoRule implements CitaValidationRule {
 
     private static final LocalTime INICIO_JORNADA = LocalTime.of(8, 0);
@@ -35,6 +27,5 @@ public class HorarioNoValidoRule implements CitaValidationRule {
         LocalTime ultimaCitaPermitida = finJornadaActual.minusMinutes(20);
 
         return !hora.isBefore(INICIO_JORNADA) && !hora.isAfter(ultimaCitaPermitida);
-    }
-    
+    }   
 }

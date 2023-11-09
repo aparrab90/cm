@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package reglas;
 
 import excepciones.CitaValidationException;
@@ -11,10 +7,6 @@ import java.util.LinkedList;
 import java.util.Map;
 import modelo.CitaMedica;
 
-/**
- *
- * @author gyecsisap
- */
 public class SinDisponibilidadRule implements CitaValidationRule {
 
     private static final int MAX_ESPECIALISTAS = 3;
@@ -44,5 +36,4 @@ public class SinDisponibilidadRule implements CitaValidationRule {
 
         return conteoCitasMismoTipoYHora < maxCitasSimultaneas;
     }
-
 }
