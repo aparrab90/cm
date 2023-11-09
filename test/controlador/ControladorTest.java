@@ -43,7 +43,7 @@ public class ControladorTest {
         // Obtener el mapa de citas del controlador
         Map<LocalDate, LinkedList<CitaMedica>> mapaCitas = controlador.getMapaCitas();
 
-        // Verificar si el mapa contiene la fecha de la cit
+        // Verificar si el mapa contiene la fecha de la cita
         assertTrue("El mapa debe contener la fecha de la cita", mapaCitas.containsKey(LocalDate.of(2023, 11, 8)));
 
         // Verificar si la cita ha sido agregada correctamente
