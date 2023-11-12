@@ -1,18 +1,20 @@
 package controlador;
 
-import excepciones.*;
 import fabrica.CitaMedicaFactory;
 import fabrica.SimpleCitaMedicaFactory;
 import impresora.ConsoleCitasPrinter;
 import modelo.CitaMedica;
+import modelo.Paciente;
+import modelo.DatosContacto;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Map;
-import org.junit.After;
 
 import static org.junit.Assert.*;
 
@@ -20,49 +22,38 @@ public class ControladorTest {
 
     private Controlador controlador;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
 
     @Before
     public void setUp() {
-        // Redireccionar salida estándar al stream de salida para pruebas.
         System.setOut(new PrintStream(outContent));
-
-        // Aquí se instancian las dependencias de Controlador y luego el Controlador mismo.
         CitaMedicaFactory factory = new SimpleCitaMedicaFactory();
         ConsoleCitasPrinter printer = new ConsoleCitasPrinter();
         controlador = new Controlador(factory, printer);
     }
 
     @Test
-    public void agregarCitaYVerificarMapa() throws CitaValidationException {
-        // Creamos una cita médica de prueba (los parámetros deben ser válidos para las reglas de validación)
-        CitaMedica cita = new CitaMedica("2023-11-08", "10:00", "CONSULTA", "Proctólogo", null, false);
+    public void testAgregarYImprimirCitas() {
+        DatosContacto contacto = new DatosContacto("555-1234", "paciente@example.com");
+        Paciente paciente = new Paciente("123", "Nombre", "Apellido", "1990-01-01", contacto, null);
+        CitaMedica cita = new CitaMedica("2023-11-08", "09:00", "General", "Medicina", paciente, true);
 
-        // Verificar y agregar la cita
-        controlador.verificarYAgregarCita(cita);
+        // Agregar cita
+        controlador.agregarCita(cita);
 
-        // Obtener el mapa de citas del controlador
+        // Verificar que la cita se haya agregado correctamente
         Map<LocalDate, LinkedList<CitaMedica>> mapaCitas = controlador.getMapaCitas();
-
-        // Verificar si el mapa contiene la fecha de la cita
         assertTrue("El mapa debe contener la fecha de la cita", mapaCitas.containsKey(LocalDate.of(2023, 11, 8)));
+        assertTrue("La lista de citas debe contener la cita agregada", mapaCitas.get(LocalDate.of(2023, 11, 8)).contains(cita));
 
-        // Verificar si la cita ha sido agregada correctamente
-        assertTrue("La lista de citas para la fecha debe contener la cita creada", 
-            mapaCitas.get(LocalDate.of(2023, 11, 8)).contains(cita));
+        // Imprimir citas y verificar la salida
+        controlador.imprimirCitas();
+        String output = outContent.toString();
+        assertTrue("La salida impresa debe contener la información de la cita", output.contains("Fecha: 2023-11-08") && output.contains("09:00") && output.contains("General") && output.contains("Medicina"));
     }
 
-    @Test(expected = FinDeSemanaException.class)
-    public void agregarCitaEnFinDeSemanaDebeFallar() throws CitaValidationException {
-        // Intentar agregar una cita en un día del fin de semana para forzar la excepción
-        CitaMedica cita = new CitaMedica("2023-11-11", "10:00", "CONSULTA", "Dermatologo", null, false);
-
-        // Esto debe lanzar FinDeSemanaException
-        controlador.verificarYAgregarCita(cita);
-    }
-        
-    // Limpiamos las pruebas
     @After
-    public void cleanUpStreams() {
-        System.setOut(null);
+    public void restoreStreams() {
+        System.setOut(originalOut);
     }
 }

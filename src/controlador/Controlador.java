@@ -23,7 +23,7 @@ public class Controlador {
                 new FinDeSemanaRule(),
                 new CitaSinAnticipacionRule(),
                 new HorarioNoValidoRule(),
-                new SinDisponibilidadRule(this.mapaCitas) // Instantiate other validation rules
+                new SinDisponibilidadRule(this.mapaCitas)
         );
 
     }
@@ -45,7 +45,5 @@ public class Controlador {
 
     public void agregarCita(CitaMedica cita) {
         mapaCitas.computeIfAbsent(LocalDate.parse(cita.getFecha()), k -> new LinkedList<>()).add(cita);
-    }
-
-   
+    }  
 }

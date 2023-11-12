@@ -17,15 +17,29 @@ public class HorarioNoValidoRule implements CitaValidationRule {
     public void validate(CitaMedica cita) throws CitaValidationException {
         LocalDate fechaCita = LocalDate.parse(cita.getFecha());
         LocalTime horaCita = LocalTime.parse(cita.getHora());
-          if (!esHorarioValido(fechaCita, horaCita)) {
+        
+        if (fechaCita.isBefore(LocalDate.now())) {
+            throw new HorarioNoValidoException("Las citas deben ser programadas para el futuro.");
+        }
+        
+        if (!esHorarioValido(fechaCita, horaCita)) {
             throw new HorarioNoValidoException("La cita está fuera del horario de atención.");
+        }
+        
+        if (!esIntervaloPermitido(horaCita)) {
+            throw new HorarioNoValidoException("La cita está en un intervalo no permitido.");
         }
     }
     
-     private boolean esHorarioValido(LocalDate fecha, LocalTime hora) {
+    private boolean esHorarioValido(LocalDate fecha, LocalTime hora) {
         LocalTime finJornadaActual = fecha.getDayOfWeek() == DayOfWeek.FRIDAY ? FIN_JORNADA_VIERNES : FIN_JORNADA;
         LocalTime ultimaCitaPermitida = finJornadaActual.minusMinutes(20);
 
         return !hora.isBefore(INICIO_JORNADA) && !hora.isAfter(ultimaCitaPermitida);
-    }   
+    }
+     
+    private boolean esIntervaloPermitido(LocalTime hora) {
+        int minutos = hora.getMinute();
+        return minutos % 20 == 0;
+    }
 }
