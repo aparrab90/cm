@@ -3,10 +3,10 @@
 [Estructura](Estructura.md) | 
 [Diagrama](Diagrama.md) |
 [Patrones](Patrones.md) |
-[Reglas](Reglas.md) |
-[Servicios](Servicios.md)
+[Servicios](Servicios.md) |
+[Ejecución](Ejecucion.md) 
 
-# Reserva de Citas Médicas 
+# Reserva de Citas Médicas | Resumen
 
 ## Objetivo del Proyecto
 

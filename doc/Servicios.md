@@ -3,14 +3,10 @@
 [Estructura](/doc/Estructura.md) | 
 [Diagrama](/doc/Diagrama.md) |
 [Patrones](/doc/Patrones.md) |
-[Reglas](/doc/Reglas.md) |
-[__Servicios__](/doc/Servicios.md)
+[__Servicios__](/doc/Servicios.md) |
+[Ejecución](/doc/Ejecucion.md) 
 
-# Reserva de Citas Médicas 
-
-...
-
-## Servicios
+# Reserva de Citas Médicas | Servicios
 
 ### CitaLoader
 

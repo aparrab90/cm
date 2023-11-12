@@ -3,10 +3,10 @@
 [Estructura](/doc/Estructura.md) | 
 [Diagrama](/doc/Diagrama.md) |
 [Patrones](/doc/Patrones.md) |
-[Reglas](/doc/Reglas.md) |
-[Servicios](/doc/Servicios.md)
+[Servicios](/doc/Servicios.md) |
+[Ejecución](/doc/Ejecucion.md) 
 
-# Proyecto Final | Reserva de Citas Médicas
+# Reserva de Citas Médicas
 
 Este proyecto tiene como objetivo crear un sistema de reserva de citas médicas para facilitar la gestión y programación de citas en un entorno médico.
 

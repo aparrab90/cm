@@ -3,10 +3,10 @@
 [Estructura](/doc/Estructura.md) | 
 [Diagrama](/doc/Diagrama.md) |
 [__Patrones__](/doc/Patrones.md) |
-[Reglas](/doc/Reglas.md) |
-[Servicios](/doc/Servicios.md)
+[Servicios](/doc/Servicios.md) |
+[Ejecución](/doc/Ejecucion.md) 
 
-## Patrones de Diseño Implementados y Principios SOLID
+# Reserva de Citas Médicas | Patrones y Principios
 
 ### Patrones de Diseño
 
@@ -34,7 +34,7 @@ public class FinDeSemanaRule implements CitaValidationRule {
 }
 ```
 
-### SOLID Principles
+### Principios SOLID 
 
 #### Single Responsibility Principle (SRP)
 

@@ -3,21 +3,27 @@
 [__Estructura__](/doc/Estructura.md) | 
 [Diagrama](/doc/Diagrama.md) |
 [Patrones](/doc/Patrones.md) |
-[Reglas](/doc/Reglas.md) |
-[Servicios](/doc/Servicios.md)
+[Servicios](/doc/Servicios.md) |
+[Ejecución](/doc/Ejecucion.md) 
 
-## Estructura del proyecto
+# Reserva de Citas Médicas | Estructura del proyecto
 
 La estructura del proyecto se organiza de la siguiente manera:
 
 ```markdown
 CM
 └───doc
-│   CitasMedicas.png
+│   └───imgs
+│   │   │   CitaSinAnticipacionRule/
+│   │   │   CitaValidationRule/
+│   │   │   FinDeSemanaRule/
+│   │   │   HorarioNoValidoRule/
+│   │   │   SinDisponibilidadRule/
+│   │   diagrama.png
 │   Diagrama.md
+│   Ejecucion.md
 │   Estructura.md
 │   Patrones.md
-│   Reglas.md
 │   Resumen.md
 │   Servicios.md
 │
@@ -27,18 +33,19 @@ CM
 │   │   │   Controlador.java
 │   │
 │   └───excepciones
+│   │   │   CitaSinAnticipacionException.java
 │   │   │   CitaValidationException.java
-│   │   │   ...
+│   │   │   FinDeSemanaException.java
+│   │   │   HorarioNoValidoException.java
+│   │   │   SinDisponibilidadException.java
 │   │
 │   └───fabrica
 │   │   │   CitaMedicaFactory.java
 │   │   │   SimpleCitaMedicaFactory.java
-│   │   │   ...
 │   │
 │   └───impresora
 │   │   │   CitasPrinter.java
 │   │   │   ConsoleCitasPrinter.java
-│   │   │   ...
 │   │
 │   └───modelo
 │   │   │   Apoderado.java
@@ -46,20 +53,59 @@ CM
 │   │   │   DatosContacto.java
 │   │   │   Paciente.java
 │   │   │   Persona.java
-│   │   │   ...
 │   │
 │   └───reglas
-│   │   │   CitaValidationRule.java
 │   │   │   CitaSinAnticipacionRule.java
+│   │   │   CitaValidationRule.java
 │   │   │   FinDeSemanaRule.java
 │   │   │   HorarioNoValidoRule.java
 │   │   │   SinDisponibilidadRule.java
-│   │   │   ...
+│   │
+│   └───reservacitasmedicas
+│   │   │   ReservaCitasMedicas.java
+│   │
+│   └───resources
+│   │   │   med_input.txt
+│   │
 │   └───servicios
 │   │   │   CitaLoader.java
 │
-└───resources
-│    │   med_input.txt
+└───test
+│   └───controlador
+│   │   │   ControladorTest.java
+│   │
+│   └───excepciones
+│   │   │   CitaSinAnticipacionExceptionTest.java
+│   │   │   CitaValidationExceptionTest.java
+│   │   │   FinDeSemanaExceptionTest.java
+│   │   │   HorarioNoValidoExceptionTest.java
+│   │   │   SinDisponibilidadExceptionTest.java
+│   │
+│   └───fabrica
+│   │   │   CitaMedicaFactoryTest.java
+│   │   │   SimpleCitaMedicaFactoryTest.java
+│   │
+│   └───impresora
+│   │   │   CitasPrinterTest.java
+│   │   │   ConsoleCitasPrinterTest.java
+│   │
+│   └───modelo
+│   │   │   ApoderadoTest.java
+│   │   │   CitaMedicaTest.java
+│   │   │   DatosContactoTest.java
+│   │   │   PacienteTest.java
+│   │   │   PersonaTest.java
+│   │
+│   └───reglas
+│   │   │   CitaSinAnticipacionRuleTest.java
+│   │   │   CitaValidationRuleTest.java
+│   │   │   FinDeSemanaRuleTest.java
+│   │   │   HorarioNoValidoRuleTest.java
+│   │   │   SinDisponibilidadRuleTest.java
+│   │
+│   └───reservacitasmedicas
+│   │   │   ReservaCitasMedicasTest.java
+│   │
 │
 └───README.md
 ```
