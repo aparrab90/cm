@@ -34,4 +34,4 @@ Este proyecto tiene como objetivo crear un sistema de reserva de citas médicas 
 
 - Diana Raquel Diaz Tapia
 - Angel Javier Parra Bagua
-- Juan Cargos Velasquez Vargas 
+- Juan Carlos Velásquez Vargas 
