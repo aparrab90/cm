@@ -1,16 +1,16 @@
-# Reserva de Citas Médicas | Diagrama
-[Inicio](/doc/Readme.md) | [__Diagrama__](/doc/Clases,md) | [Reglas](/doc/Reglas.md)
+[Inicio](../README.md) | 
+[Resumen](/doc/Resumen.md) | 
+[Estructura](/doc/Estructura.md) | 
+[__Diagrama__](/doc/Diagrama.md) |
+[Patrones](/doc/Patrones.md) |
+[Reglas](/doc/Reglas.md) |
+[Servicios](/doc/Servicios.md)
 
-# Diagrama
-Clases, métodos y relaciones en el sistema de gestión de citas médicas.
-
-![Diagrama de Clases](/doc/CitasMedicas.png)
-
+![Texto Alternativo](/doc/CitasMedicas.png)
 
 ## Controlador
 
-La clase `Controlador` es el núcleo del sistema de gestión de citas médicas. Es responsable de administrar las citas médicas, aplicar reglas de validación y gestionar la impresión de citas.
-
+La clase `Controlador` es una parte esencial del sistema de gestión de citas médicas. Es responsable de administrar las citas médicas, aplicar reglas de validación y gestionar la impresión de citas.
 ### Atributos
 
 - `mapaCitas`: Un mapa que almacena las citas médicas organizadas por fecha.
@@ -22,8 +22,12 @@ La clase `Controlador` es el núcleo del sistema de gestión de citas médicas. 
 
 - `verificarYAgregarCita(CitaMedica cita)`: Este método se encarga de verificar si una cita médica cumple con las reglas de validación y, si es así, la agrega al mapa de citas.
 - `agregarCita(CitaMedica cita)`: Agrega una cita médica al mapa de citas.
-- `cargarCitasMedicas(String fileName)`: Lee citas médicas desde un archivo y las carga en el sistema, aplicando las reglas de validación.
+- `cargarCitasMedicas(String fileName)`: Lee citas médicas desde un archivo utilizando el servicio `CitaLoader` y las carga en el sistema, aplicando las reglas de validación.
 - `imprimirCitas()`: Imprime todas las citas médicas en el mapa.
+
+## CitaLoader (Servicio)
+
+La clase `CitaLoader` es un servicio encargado de cargar citas médicas desde un archivo. Utiliza la fábrica de citas y el controlador para procesar y validar las citas antes de agregarlas al sistema.
 
 ## CitaMedica
 

@@ -1,65 +1,37 @@
-# Project Title
+[__Inicio__](README.md) | 
+[Resumen](/doc/Resumen.md) | 
+[Estructura](/doc/Estructura.md) | 
+[Diagrama](/doc/Diagrama.md) |
+[Patrones](/doc/Patrones.md) |
+[Reglas](/doc/Reglas.md) |
+[Servicios](/doc/Servicios.md)
 
-A brief description of what this project does and who it's for.
+# Proyecto Final | Reserva de Citas Médicas
 
-## Patrones de Diseño Implementados y Principios SOLID
+Este proyecto tiene como objetivo crear un sistema de reserva de citas médicas para facilitar la gestión y programación de citas en un entorno médico.
 
-### Patrones de Diseño
+## Características Principales
 
-#### Factory Pattern
-Utilizamos el patrón de Fábrica para crear objetos CitaMedica. Este patrón nos permite encapsular la lógica de creación de diferentes tipos de citas médicas y hace que el código sea más mantenible y escalable.
-```java
-public class SimpleCitaMedicaFactory implements CitaMedicaFactory {
-    public CitaMedica createCitaMedica(...) {
-        // Logic to create and return a CitaMedica instance
-    }
-}
-```
-#### Strategy Pattern
-Para las reglas de validación, se implementa el patrón de Estrategia. Cada regla es una estrategia, lo que facilita la adición de nuevas reglas sin modificar las existentes.
-  
-```java
-public class FinDeSemanaRule implements CitaValidationRule {
-    public void validate(CitaMedica citaMedica) throws CitaValidationException {
-        // Implementation of the weekend validation rule
-    }
-}
-```
+- Creación y gestión de citas médicas.
+- Aplicación de reglas de validación para garantizar la integridad de las citas.
+- Impresión de citas de manera organizada.
 
-### SOLID Principles
-#### Single Responsibility Principle (SRP)
-Cada clase tiene una única responsabilidad. Por ejemplo, ConsoleCitasPrinter solo es responsable de imprimir las citas.
+## Tecnologías Utilizadas
 
-```java
-public class ConsoleCitasPrinter implements CitasPrinter {
-    public void print(List<CitaMedica> citas) {
-        // Logic to print all the citas to the console
-    }
-}
-```
+- Java 21.0.1 (LTS) 
+- JUnit 4.13.2
+- Hamcrest 1.3
+- [draw.io](https://draw.io/) - Herramienta de diagramación en línea
 
 
+## Instrucciones de Uso
 
-#### Interface Segregation Principle (ISP)
-Las interfaces se mantienen pequeñas y específicas para las necesidades del cliente, como la interfaz CitaValidationRule.
-```java
-public interface CitaValidationRule {
-    void validate(CitaMedica cita) throws CitaValidationException;
-}
-```
+1. Clone el [repositorio](https://github.com/aparrab90/cm.git)
+2. Ejecute el archivo principal: `ReservaCitasMedicas.java`.
 
 
+## Autores
 
-
-#### Dependency Inversion Principle (DIP)
-Los módulos de alto nivel no dependen de módulos de bajo nivel; ambos dependen de abstracciones. Por ejemplo, Controlador depende de la abstracción CitaMedicaFactory, no de la fábrica concreta.
-```java
-public class Controlador {
-    private CitaMedicaFactory citaMedicaFactory;
-
-    public Controlador(CitaMedicaFactory factory) {
-        this.citaMedicaFactory = factory;
-    }
-    // Other methods...
-}
-```
+- Diana Raquel Diaz Tapia
+- Angel Javier Parra Bagua
+- Juan Cargos Velasquez Vargas 
