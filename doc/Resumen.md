@@ -135,4 +135,3 @@ Se aplica el principio de inversión de dependencias. `Controlador` depende de l
 
 El proyecto utiliza patrones de diseño y principios SOLID para mejorar la organización, mantenibilidad y extensibilidad del código. La aplicación de reglas de validación garantiza la integridad de las citas médicas y proporciona un sistema robusto para la reserva de citas.
 
-<span style="float:right;"> <small> [< Volver al Inicio](../README.md)</small></span>
