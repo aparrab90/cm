@@ -3,19 +3,42 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/resources/med_input_PacienteDatosIncompletos.txt</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/PruebasUnitariasFuncionales/HorariosConsecutivos.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/PruebasUnitariasFuncionales/PacienteMenorEdad.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/resources/med_input_HorarioFuturo.txt</file>
             <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/fabrica/CitaMedicaFactory.java</file>
-            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/modelo/CitaMedica.java</file>
-            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/modelo/Paciente.java</file>
-            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/reglas/SinDisponibilidadRule.java</file>
-            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/modelo/Persona.java</file>
-            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/reglas/CitaSinAnticipacionRule.java</file>
             <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/reglas/CitaValidationRule.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/impresora/ConsoleCitasPrinter.java</file>
             <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/controlador/ControladorTest.java</file>
             <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/modelo/DatosContacto.java</file>
-            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/controlador/Controlador.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/resources/med_input.txt</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/fabrica/SimpleCitaMedicaFactory.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/resources/med_input_ok.txt</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/excepciones/FinDeSemanaException.java</file>
             <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/modelo/Apoderado.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/resources/med_input_ok.txt</file>
             <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/reglas/FinDeSemanaRule.java</file>
             <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/reglas/HorarioNoValidoRule.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/PruebasUnitariasFuncionales/PacientesSimultaneos.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/resources/med_input_FinDeSemana.txt</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/reservacitasmedicas/ReservaCitasMedicasTest.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/reservacitasmedicas/ReservaCitasMedicas.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/servicios/CitaLoader.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/PruebasUnitariasFuncionales/HorariosFinDeSemana.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/resources/med_input_HorariosConsecutivos.txt</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/PruebasUnitariasFuncionales/HorariosFueraHorario.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/PruebasUnitariasFuncionales/HorariosFuturos.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/modelo/CitaMedica.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/modelo/Paciente.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/modelo/Persona.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/reglas/CitaSinAnticipacionRule.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/servicios/CitaLoaderTest.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/resources/med_input_PacientesSimultaneos.txt</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/src/controlador/Controlador.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/PruebasUnitariasFuncionales/PacienteDatosIncompletos.java</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/resources/med_input_FueraHorario.txt</file>
+            <file>file:/D:/UPS/PATRONES%20DE%20DISEÑO%20DE%20SOFTWARE/CitasProyecto/cm/test/resources/med_input_PacienteMenorEdad.txt</file>
         </group>
     </open-files>
 </project-private>
