@@ -16,7 +16,6 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 import modelo.Apoderado;
 import modelo.CitaMedica;
 import modelo.DatosContacto;
@@ -116,16 +115,22 @@ public class CitaLoader {
         String[] persona = {nombre, apellido};
         return persona;
     }
-    
+
     private boolean datosCompletos(String[] parts) {
+        boolean especialidadValida;
         if (parts.length < 10) {
             return false;
         }
-        
+
         boolean fechaValida = !parts[0].trim().isEmpty();
         boolean horaValida = !parts[1].trim().isEmpty();
         boolean tipoConsultaValido = !parts[2].trim().isEmpty();
-        boolean especialidadValida = !parts[3].trim().isEmpty();
+        if ("GENERAL".equals(parts[2].trim())) {
+            especialidadValida = true;
+        } else {
+            especialidadValida = !parts[3].trim().isEmpty();
+        }
+        //especialidadValida = !parts[3].trim().isEmpty();
         boolean nombreYApellidoValidos = !parts[4].trim().isEmpty();
         boolean tipoPacienteValido = !parts[5].trim().isEmpty();
         boolean tipoIdentificacionValido = !parts[6].trim().isEmpty();
@@ -133,22 +138,22 @@ public class CitaLoader {
         boolean celularValido = !parts[8].trim().isEmpty();
         boolean fechaNacimientoValida = !parts[9].trim().isEmpty();
 
-        return fechaValida && horaValida && tipoConsultaValido && especialidadValida &&
-               nombreYApellidoValidos && tipoPacienteValido && tipoIdentificacionValido &&
-               identificacionValida && celularValido && fechaNacimientoValida;
+        return fechaValida && horaValida && tipoConsultaValido && especialidadValida
+                && nombreYApellidoValidos && tipoPacienteValido && tipoIdentificacionValido
+                && identificacionValida && celularValido && fechaNacimientoValida;
     }
 
     private boolean esApoderadoValido(String[] parts) {
         if (parts.length < 15 || !"APO".equals(parts[10])) {
             return false;
         }
-        
+
         boolean nombreYApellidoValidosApoderado = !parts[11].trim().isEmpty();
         boolean tipoIdentificacionValidoApoderado = !parts[12].trim().isEmpty();
         boolean identificacionValidaApoderado = !parts[13].trim().isEmpty();
         boolean fechaNacimientoValidaApoderado = !parts[14].trim().isEmpty();
-        
-        return nombreYApellidoValidosApoderado && tipoIdentificacionValidoApoderado && 
-        identificacionValidaApoderado && fechaNacimientoValidaApoderado;
+
+        return nombreYApellidoValidosApoderado && tipoIdentificacionValidoApoderado
+                && identificacionValidaApoderado && fechaNacimientoValidaApoderado;
     }
 }
