@@ -6,6 +6,7 @@ import excepciones.CitaValidationException;
 import fabrica.*;
 import impresora.ConsoleCitasPrinter;
 import java.io.IOException;
+import servicios.CitaLoader;
 
 public class ReservaCitasMedicas {
 
@@ -14,7 +15,8 @@ public class ReservaCitasMedicas {
            CitaMedicaFactory factory = new SimpleCitaMedicaFactory();
         ConsoleCitasPrinter printer = new ConsoleCitasPrinter();
         Controlador controlador = new Controlador(factory, printer);
-        controlador.cargarCitasMedicas(filePath);
+        CitaLoader  citaLoader = new CitaLoader (factory, controlador);
+        citaLoader.cargarCitasMedicas(filePath);
         controlador.imprimirCitas();
     }
 
