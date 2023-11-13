@@ -4,7 +4,8 @@
 [Diagrama](/doc/Diagrama.md) |
 [__Patrones__](/doc/Patrones.md) |
 [Servicios](/doc/Servicios.md) |
-[Ejecución](/doc/Ejecucion.md) 
+[Ejecución](/doc/Ejecucion.md) |
+[Test](/doc/Test.md)
 
 # Reserva de Citas Médicas | Patrones y Principios
 

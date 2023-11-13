@@ -4,7 +4,8 @@
 [Diagrama](/doc/Diagrama.md) |
 [Patrones](/doc/Patrones.md) |
 [Servicios](/doc/Servicios.md) |
-[Ejecución](/doc/Ejecucion.md) 
+[Ejecución](/doc/Ejecucion.md) |
+[Test](/doc/Test.md) 
 
 # Reserva de Citas Médicas
 
@@ -17,16 +18,17 @@ Este proyecto tiene como objetivo crear un sistema de reserva de citas médicas 
 - Impresión de citas de manera organizada.
 
 ## Tecnologías Utilizadas
-
 - Java 21.0.1 (LTS) 
 - JUnit 4.13.2
 - Hamcrest 1.3
 - [draw.io](https://draw.io/) - Herramienta de diagramación en línea
 
+## Trabajo en equipo
+- [Commits](https://github.com/aparrab90/cm/commits/main)  
 
 ## Instrucciones de Uso
 
-1. Clone el [repositorio](https://github.com/aparrab90/cm.git)
+1. Clone el [Repositorio](https://github.com/aparrab90/cm.git)
 2. Ejecute el archivo principal: `ReservaCitasMedicas.java`.
 
 
