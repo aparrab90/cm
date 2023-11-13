@@ -1,10 +1,10 @@
 [Inicio](../README.md) | 
-[Resumen](/doc/Resumen.md) | 
-[Estructura](/doc/Estructura.md) | 
-[Diagrama](/doc/Diagrama.md) |
-[Patrones](/doc/Patrones.md) |
-[Servicios](/doc/Servicios.md) |
-[Ejecución](/doc/Ejecucion.md) |
+[Resumen](Resumen.md) | 
+[Estructura](Estructura.md) | 
+[Diagrama](Diagrama.md) |
+[Patrones](Patrones.md) |
+[Servicios](Servicios.md) |
+[Ejecución](Ejecucion.md) |
 [__Test__](Test.md) 
 
 # Test Packages

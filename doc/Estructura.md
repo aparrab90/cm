@@ -1,11 +1,11 @@
 [Inicio](../README.md) | 
-[Resumen](/doc/Resumen.md) | 
-[__Estructura__](/doc/Estructura.md) | 
-[Diagrama](/doc/Diagrama.md) |
-[Patrones](/doc/Patrones.md) |
-[Servicios](/doc/Servicios.md) |
-[Ejecución](/doc/Ejecucion.md) |
-[Test](/doc/Test.md)
+[Resumen](Resumen.md) | 
+[__Estructura__](Estructura.md) | 
+[Diagrama](Diagrama.md) |
+[Patrones](Patrones.md) |
+[Servicios](Servicios.md) |
+[Ejecución](Ejecucion.md) |
+[Test](Test.md)
 
 # Reserva de Citas Médicas | Estructura del proyecto
 

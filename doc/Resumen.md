@@ -5,7 +5,7 @@
 [Patrones](Patrones.md) |
 [Servicios](Servicios.md) |
 [Ejecución](Ejecucion.md) |
-[Test](/doc/Test.md)
+[Test](Test.md)
 
 # Reserva de Citas Médicas | Resumen
 
